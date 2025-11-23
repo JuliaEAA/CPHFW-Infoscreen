@@ -1,0 +1,626 @@
+/* Globális beállítások és betűtípus */
+:root {
+    --primary-black: #000000;
+    --primary-white: #ffffff;
+    --font-family: 'DM Sans', sans-serif;
+    --max-width: 1200px; /* A kért Figma prototípus szélessége */
+    --max-height: 1269px; /* A kért Figma prototípus magassága */
+}
+
+/* Reset body margins and padding */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FBFBFB;
+}
+
+
+/* Fonts Import */
+.dm-sans {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.dm-sans-bold {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.oswald {
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.oswald-bold {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+.heading {
+  font-family: "Oswald", sans-serif;
+  margin-top: 80px;
+  padding-left: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 50px;
+}
+
+
+/* Style for "CPHFW" part */
+.heading .cphfw-text {
+  font-weight: 700;
+  font-family: "Oswald", sans-serif;
+  color: #171717;
+  font-size: 70px;
+  justify-content: center;
+}
+
+
+/* Style for arrow */
+.heading .arrow {
+  font-size: 50px;
+  font-weight: 300;
+  color: #171717;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  justify-content: center;
+}
+/* Style for "Gallery" part */
+.heading .gallery {
+  font-weight: 300;
+  font-family: "DM Sans", sans-serif;
+  color: #171717;
+  font-size: 60px;
+  justify-content: center;
+}
+
+
+/* Rolling gallery container */
+.rolling-gallery-container {
+  width: 100%;
+  margin: 60px 0;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+}
+
+.rolling-gallery {
+  display: flex;
+  animation: roll 20s linear infinite;
+  width: calc(200px * 6); /* 3 items × 2 for seamless loop */
+  align-items: flex-start;
+}
+
+.rolling-item {
+  width: 340px;
+  height: 468px;
+  margin: 0 10px;
+  position: relative;
+  border-radius: 0%;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.rolling-item:hover {
+  transform: scale(1.05);
+  animation-play-state: paused;
+}
+
+.rolling-gallery:hover {
+  animation-play-state: paused;
+}
+
+.rolling-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0%;
+}
+
+.rolling-text {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  background-color: none;
+  color: #FBFBFB;
+  padding: 5px 10px;
+  border-radius: 0px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+@keyframes roll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+/* Responsive tweak */
+@media (max-width: 600px) {
+    .rolling-item { width: 110px; }
+    .rolling-text { font-size: 0.8rem; }
+}
+/* Duplicate items for seamless loop */
+.rolling-gallery::after {
+  content: '';
+  display: flex;
+}
+/*************** Rolling Gallery CLOSE *************/
+
+/* Gallery title */
+.gallery-title {
+  text-align: center;
+  width: 1,088px;
+  height: 347px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 400px;
+  font-weight: 700;
+  margin-top: 20px; 
+  margin-bottom: 180px;
+  margin-left: -40px;
+  margin-right: -40px;
+  color: #171717;
+}
+/* Container for subheading and right side elements */
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 80px;
+}
+
+
+.subheading {
+  font-family: "DM Sans", sans-serif;
+  font-size: 40px;
+  line-height: 1.5;
+  padding-left: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+.backbutton , .backbutton2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 120px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  text-decoration: none;
+  width: 220px;
+  height: 80px;
+  background-color: #FBFBFB;
+  border-radius: 30px;
+  border: #171717 4px solid;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.30);
+}
+.backbutton:hover , .backbutton2:hover {
+  background-color: #dadada;
+  color: #171717;
+  transition: 0.3s;
+}
+
+
+.a {
+  text-decoration: none;
+}
+
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 40px;
+}
+
+
+.QRcode {
+  max-width: 180px;
+  height: auto;
+  margin-right: 60px;
+
+
+}
+.scanformore {
+  font-family: "DM Sans", sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-right: 90px;
+  display: flex;
+}
+
+
+.Runwayhighlights {
+  font-family: "DM Sans", sans-serif;
+  text-align: center;
+  font-weight: 400;
+  font-size: 50px;
+  margin: 20px;
+  padding-left: 50px;
+  line-height: 0.5;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  border-top: 6px solid #171717;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+.date {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 900;
+  font-size: 50px;
+}
+
+/* --- 1. A Konténer beállítása (A körhinta) --- */
+.horizontal-slider {
+    display: flex; /* Flexbox a vízszintes elrendezéshez */
+    overflow-x: auto; /* "scroll" volt elozoleg Fontos: elrejti a képeket, amik kilógnak a konténerből */
+    overflow-y: hidden; /* Kikapcsolja a függőleges görgetést (ha véletlenül lenne) */
+    height: 984px; /* Meghatározza, hogy milyen magasan látszódjon a slider */
+    
+    /* A görgető sáv elrejtése a legtöbb böngészőben */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    scroll-snap-type: x mandatory; /* A kulcsa a swipe/kattintás hatásnak: */
+}
+
+/* Chrome/Safari görgető sáv elrejtése */
+.horizontal-slider::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* --- 2. Az Egyedi Elemek beállítása (A képek és címek) --- */
+.slide-item {
+    /* Biztosítja, hogy az elem a konténer szélességét vegye fel (pl. mobilon 100%) */
+    flex: 0 0 100%; 
+    width: 1024px;
+    height: 984px; 
+    margin-left: 88px;
+    position: relative;
+    gap: 5px;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    
+    /* Ezen az elemen kattan be a görgetés */
+    scroll-snap-align: start; 
+    
+    /* Példa stílus */
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.slide-item img {
+    /* A slide-item magasságának kitöltése (mínusz a felirat helye) */
+    width: 778px;
+    height: 899px; 
+    margin-left: 88px;
+    gap: 5px;
+    
+    /* A kép kitöltse a rendelkezésre álló helyet torzítás nélkül */
+    object-fit: cover; 
+    display: block; /* block volt */
+    margin-bottom: 10px;
+}
+
+/* --- 4. A Cím Stílusa --- */
+.rolling-text2 {
+    font-size: 48px;
+    color: #171717; 
+    position: static;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background-color: none;
+    padding: 5px 10px;
+    font-family: "DM Sans", sans-serif;
+    font-weight: light;
+    text-align: left;
+    margin-top: 0.5rem; /* 0.5 rem volt */
+    margin: 8px 0 0 88px; /* align with image left offset */
+    line-height: 1.1;
+}
+
+/* --- (Opcionális) Asztali gép, ahol egyszerre több kép is látszik --- */
+@media (min-width: 984px) {
+    .slide-item {
+        /* Például 2 kép látszik egyszerre (100% / 2 = 50%) */
+        flex: 0 0 50%; 
+    }
+    .slide-item img {
+        height: auto; /* Magasság automatikus, hogy megőrizze az arányokat */
+    }
+}
+
+.community-title {
+  font-weight: 700;
+  font-size: 40px;
+  letter-spacing: 0;
+  margin: 20;
+  display: block;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 40px;
+  padding-right: NONE;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: uppercase;
+  border-top: 6px solid #171717;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  padding-top: 32px;
+  padding-bottom: 0px;
+
+}
+
+.community-paragraph {
+  font-family: "DM Sans", sans-serif;
+  font-size: 24px;
+  line-height: 1.5;
+  margin-top: 20px;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+}
+
+/* --- GRID CONTAINER (3x3) --- */
+.gallery-grid {
+    /* Engedélyezi a CSS Grid-et */
+    display: grid; 
+    
+    /* Létrehoz 3 egyenlő szélességű oszlopot (1fr = 1 "fraction" - frakció) */
+    grid-template-columns: repeat(3, 1fr); 
+    
+    /* Térköz (gap) az oszlopok és sorok között */
+    gap: 5px; 
+    
+    /* Középre igazítás, ha a rács kisebb, mint a rendelkezésre álló hely */
+    margin: 36px auto;
+}
+
+/* --- Az Egyedi Rács Elem Stílusa --- */
+.gallery-item {
+    /* Az átlátható háttér beállításához, ha szükséges */
+    background-color: transparent; 
+}
+
+/* --- Kép Stílusa --- */
+.gallery-item img {
+    /* A kép szélessége kitölti a rács elemét */
+    width: 302px;
+    margin-left: 36px; /* 36 volt */
+    margin-right: 36px; /* 36 volt */
+    
+    /* Fix magasság (példa, módosítsd igény szerint) */
+    height: 376px;
+    
+    /* Biztosítja, hogy a kép kitöltse a területet, de ne torzuljon */
+    object-fit: cover; 
+    display: block; /* Eltávolítja az esetleges alul lévő kis extra helyet */
+}
+
+/* --- Felirat (Caption) Stílusa --- */
+.caption {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
+  font-style: light;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: -2.2%;
+  color: #171717;
+  margin-left: 36px;
+  padding-bottom: 16px;
+
+    /* Pozícionálás (baloldalt) */
+    text-align: left; 
+    
+    /* Kép alatti térköz */
+    padding-top: 4px; 
+    
+
+}
+
+/* --- Reszponzivitás (Opcionális de Ajánlott) --- */
+/* Kisebb képernyőn (pl. mobilon) legyen 2 oszlop, ne 3 */
+@media (max-width: 768px) {
+    .gallery-grid {
+        /* 2 egyenlő oszlop mobilon */
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+/* Még kisebb képernyőn 1 oszlop (alapértelmezett, vagy expliciten megadva) */
+@media (max-width: 480px) {
+    .gallery-grid {
+        /* 1 oszlop mobilon */
+        grid-template-columns: 1fr; 
+    }
+}
+.footer {
+  text-align: left;
+  font-family: "DM Sans", sans-serif;
+  font-size: 32px;
+  background-color: #171717;
+  color: #FBFBFB;
+  padding: 20px;
+  margin: 40px 0;
+}
+
+.footer-qr {
+  max-width: 180px;
+  height: auto;
+  margin-right: 80px;
+  width: 115px;
+  height: 116px;
+  margin-top: 50px;
+  margin-left: 30px;
+}
+
+.betheshow {
+  text-align: left;
+  font-family: "DM Sans", sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: #FBFBFB;
+  margin-left: 30px;
+}
+
+.contact {
+  text-align: left;
+  font-family: "DM Sans", sans-serif;
+  font-size: 24px;
+  color: #FBFBFB;
+  margin-left: 30px;
+}
+
+.socials-title {
+  text-align: center;
+  width: 178px;
+  height: 347px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 250px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: -180px;
+  margin-left: -60px;
+  margin-right: -29px;
+  color: #FBFBFB;
+  line-height: 1;
+  line-break: none;
+  display: block;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.horizontal-slider {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: auto;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.horizontal-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.slide-item {
+  width: 340px;
+  height: auto; /* Let content (image + text) define height */
+  margin: 0 10px;
+  position: relative; /* keep relative just in case */
+  border-radius: 0%;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column; /* Stack image + text vertically */
+  align-items: flex-start; /* Align text to the left */
+}
+
+.slide-item img {
+  width: 100%;
+  height: 668px;
+  object-fit: cover;
+  border-radius: 0%;
+  display: block;
+}
+
+.rolling-text2 {
+  position: static; /* Remove absolute positioning */
+  margin-top: 8px;  /* small space below image */
+  padding: 0 4px;   /* small left margin if desired */
+  background: none;
+  color: #171717;   /* make it visible if needed */
+  font-family: "DM Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: left;
+  width: 100%; 
+}
+
+/* --- IMAGE GALLERY GRID (Perfectly Even Gaps) --- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 36px; /* equal space between all images */
+  max-width: 1200px; /* match your design width */
+  margin: 0 auto 80px auto; /* center horizontally + bottom space */
+  padding: 0 36px; /* equal left & right margins */
+  box-sizing: border-box;
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* captions align left with image */
+  justify-content: flex-start;
+  background-color: transparent; 
+}
+
+/* --- IMAGE STYLING --- */
+.gallery-item img {
+  width: 100%; /* fills its grid cell */
+  height: 360px; /* consistent height across all rows */
+  object-fit: cover; /* keeps aspect ratio, crops evenly */
+  display: block;
+  border-radius: 0;
+}
+
+/* --- CAPTION STYLING --- */
+.caption {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  color: #171717;
+  line-height: 1.4;
+  margin-top: 8px;  /* space below image */
+  text-align: left; /* aligned with left side of image */
+  width: 100%;      /* ensures it aligns evenly with image width */
+}
+
+.button-a {
+  text-decoration: none;
+}
+
+.backbutton:hover,
+.backbutton2:hover,
+.backbutton a:hover,
+.backbutton2 a:hover {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none; /* removes underline from all links */
+}
+
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none; /* make sure it doesn’t reappear on hover */
+}
+
+/* Optional: ensure button text color doesn’t change */
+a button {
+  color: black;
+}

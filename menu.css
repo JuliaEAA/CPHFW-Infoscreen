@@ -1,0 +1,181 @@
+/* Fonts Import */
+.dm-sans {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.dm-sans-bold {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.body {
+background: #FBFBFB;
+background: linear-gradient(0deg, rgba(251, 251, 251, 1) 0%, rgba(251, 251, 251, 0) 36%, rgba(251, 251, 251, 0) 72%, rgba(251, 251, 251, 1) 100%);
+}
+/* Basic reset */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body { margin: 0; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial; }
+
+:root {
+	--edge-fade-color-r: 251; /* #FBFBFB */
+	--edge-fade-color-g: 251;
+	--edge-fade-color-b: 251;
+	--edge-fade-height: 40vh; /* top fade: extend 50vh down the page */
+	--edge-fade-bottom-height: 50vh; /* bottom fade: 1/2 up the page */
+	--edge-fade-z: 9990; /* below the left scrollbar (9999) */
+}
+
+body::before,
+body::after {
+	content: "";
+	position: fixed;
+	left: 0;
+	right: 0;
+	height: var(--edge-fade-height);
+	pointer-events: none; /* allow clicks through the fade */
+	z-index: var(--edge-fade-z);
+}
+
+/* top fade: solid at very top -> transparent inward */
+body::before {
+	top: 0;
+	background: linear-gradient(to bottom, rgba(var(--edge-fade-color-r), var(--edge-fade-color-g), var(--edge-fade-color-b), 1) 0%, rgba(var(--edge-fade-color-r), var(--edge-fade-color-g), var(--edge-fade-color-b), 0) 100%);
+}
+
+/* bottom fade: solid at bottom -> transparent inward */
+body::after {
+	bottom: 0;
+	height: var(--edge-fade-bottom-height);
+	background: linear-gradient(to top, rgba(var(--edge-fade-color-r), var(--edge-fade-color-g), var(--edge-fade-color-b), 1) 0%, rgba(var(--edge-fade-color-r), var(--edge-fade-color-g), var(--edge-fade-color-b), 0) 100%);
+}
+
+/* Simple menu layout */
+ul { margin: 40px 24px; padding: 60px 0; list-style: none; }
+/* More breathing room between menu items; reduced on smaller screens */
+ul li { margin: 28px 0; }
+ul a { color: #111; text-decoration: none; font-weight: 600; }
+
+/* Left draggable scrollbar */
+#left-scrollbar {
+	position: fixed;
+	left: 9px;
+	top: 20vh;
+	bottom: 20vh;
+	width: 20px;
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	pointer-events: auto;
+    border-radius: 10px;
+}
+
+#scroll-track {
+	position: relative;
+	width: 20px; /* visible track width */
+	height: 100%;
+	margin: 0 auto;
+	background: rgba(0,0,0,0.06);
+	border-radius: 999px;
+
+}
+/* Scrollbar thumb */
+.thumb {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%) translateY(0);
+	width: 20px; /* wider hit target */
+	height: 60px; /* default, will be updated by JS */
+	background: #898989;
+	border-radius: 10px;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+	touch-action: none; /* we handle pointer events */
+	cursor: grab;
+}
+.thumb:active { cursor: grabbing; }
+
+/* hide when there's nothing to scroll */
+#left-scrollbar.hidden { opacity: 0; pointer-events: none; transition: opacity 160ms ease; }
+
+/* small screens: shrink left offset */
+@media (max-width: 520px) {
+	#left-scrollbar { left: 6px; width: 18px; }
+	.thumb { width: 12px; }
+
+	/* tighter spacing on phones */
+	ul li { margin: 14px 0; }
+}
+
+.Menu-Container {
+	max-width: 1200px;
+	padding-top: 12vh;
+	display: block;
+	justify-content: center;
+	text-align: center;
+	margin-right: 12%;
+	margin-left: 12%;
+	line-height: 1.05;
+	font-weight: 600;
+	/* responsive main heading size (clamped) */
+	font-size: clamp(28px, 8vw, 200px);
+	font-family: "DM Sans", sans-serif;
+}
+
+/* Make headings and menu text responsive */
+.pages {
+	/* large but responsive */
+	font-size: clamp(32px, 20vw, 200px);
+	line-height: 1.05;
+	margin: 0 0 18px;
+	text-align: center;
+	font-family: "DM Sans", sans-serif;
+	color: #111;
+	text-decoration: none;
+}
+
+.pages.a {
+	text-align: center;
+	cursor: pointer;
+}
+
+.a {
+	text-align: center;
+}
+
+ul a {
+	font-size: clamp(14px, 2.2vw, 18px);
+}
+
+/* Responsive tweaks for medium screens */
+@media (max-width: 900px) {
+	.Menu-Container {
+		padding-top: 10vh;
+		margin-right: 8%;
+		margin-left: 8%;
+		font-size: clamp(24px, 7.5vw, 140px);
+	}
+	#left-scrollbar { top: 14vh; bottom: 14vh; }
+}
+
+/* Small screens: stack, reduce sizes and spacing */
+@media (max-width: 520px) {
+	.Menu-Container {
+		padding-top: 6vh;
+		margin-right: 4%;
+		margin-left: 4%;
+		font-size: clamp(18px, 10vw, 64px);
+	}
+	.pages { font-size: clamp(18px, 10vw, 56px); }
+	ul { margin: 16px; }
+	ul li { margin: 8px 0; }
+	ul a { font-size: 16px; }
+	/* make scrollbar less intrusive on small screens */
+	#left-scrollbar { left: 6px; top: 10vh; bottom: 10vh; }
+	#scroll-track { width: 10px; }
+	.thumb { width: 12px; }
+}
+.pages {
+  line-height: 2;
+}

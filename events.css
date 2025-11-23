@@ -1,0 +1,259 @@
+/* font */
+
+  .dm-sans {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+.dm-sans-bold {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Oswald class kept but using DM Sans for uniformity */
+.oswald {
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.oswald-bold {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+/* GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  color: #171717;
+  background-color: #fff;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+
+/* HEADER */
+.heading {
+  display: flex;
+  justify-content: left;
+  align-items: baseline;
+  gap: 16px;
+  margin-top: 60px;
+}
+
+.cphfw-text {
+  font-weight: 700;
+  font-size: 70px;
+}
+
+.arrow {
+  font-size: 50px;
+  font-weight: 300;
+}
+
+.brands-text {
+  font-weight: 300;
+  font-size: 60px;
+}
+
+/* HERO */
+.heroimage img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px 0;
+}
+
+/* QR */
+.qrcode {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 32px;
+  gap: 6px;
+}
+
+.qrcode img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.qrcode-caption {
+  font-size: 12px;
+}
+
+/* SUBTEXT */
+.subtext {
+  padding: 30px;
+  text-align: left;
+}
+
+.subline {
+  font-size: 18px;
+}
+
+.subline-strong {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.goback {
+  margin-top: 10px;
+  font-size: 16px;
+  padding: 8px 20px;
+  background-color: #fbfbfb;
+  border: 2px solid #171717;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+h
+
+.goback:hover {
+  background-color: #dadada;
+}
+
+.goback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 120px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  width: 220px;
+  height: 80px;
+  background-color: #FBFBFB;
+  border-radius: 30px;
+  border: #171717 4px solid;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.30);
+}
+.goback:hover {
+  background-color: #dadada;
+  color: #171717;
+  transition: 0.3s;
+}
+
+.a {
+  text-decoration: none;
+}
+
+/* CATEGORY */
+.categories {
+  padding: 20px 40px;
+}
+
+.category {
+  margin-bottom: 40px;
+}
+
+.category h3 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 40px;
+  font-weight: 400;
+  border-bottom: 5px solid #000;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.toggle {
+  font-size: 36px;
+}
+
+/* EVENT LIST */
+.event-list {
+  display: none;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.event {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 20px;
+  align-items: center;
+  border-bottom: 3px solid #000;
+  padding-bottom: 20px;
+}
+
+.event-link {
+  text-decoration: none;
+  color: #171717;
+  font-family: DM Sans, sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.event-info h4 {
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.event-info p {
+  font-size: 16px;
+  margin-top: 4px;
+  line-height: 1.2;
+}
+
+.event-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .heading {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px;
+  }
+
+  .cphfw-text, .brands-text { font-size: 40px; }
+
+  .event {
+    grid-template-columns: 1fr;
+  }
+
+  .event-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .qrcode {
+    align-items: flex-start;
+    margin: 10px 20px;
+  }
+
+  .qrcode img { width: 80px; height: 80px; }
+}
+
+.fasz {
+    font-family: DM Sans, sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    color: #171717;
+}

@@ -1,0 +1,145 @@
+body {
+  width: 1260px;
+  height: 1200px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fbfbfb;
+}
+/* CSS variables for easy tuning */
+:root {
+  --item-width: 340px;
+  --item-height: 460px;
+  --roll-duration: 50s;
+}
+/* QR positioned inside gallery2 and sized to match items by default */
+.qr {
+  position: absolute; /* positioned relative to .rolling-gallery-container2 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto; /* set to none if you want clicks to pass through */
+}
+.qr img {
+  padding: 4px;
+  background-color: #fbfbfb;
+  height: var(--item-height);
+  width: auto;
+  max-width: 80vw;
+  max-height: 80vh;
+  display: block;
+}
+/*************** Rolling Gallery OPEN *************/
+.rolling-gallery-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.rolling-gallery {
+  display: flex;
+  animation: roll var(--roll-duration) linear infinite;
+  width: calc(var(--item-width) * 12); /* 6 items × 2 for seamless loop */
+}
+
+.rolling-item {
+  width: var(--item-width);
+  height: var(--item-height);
+  margin: 0 20px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.rolling-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.rolling-text {
+  position: absolute;
+  bottom: 10px;
+  left: 0px;
+  right: 0px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 15px;
+  font-family: "dm-sans", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: left;
+}
+
+@keyframes roll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.rolling-gallery::after {
+  content: '';
+  display: flex;
+}
+/* Duplicate items for seamless loop GALLERY 2 */
+.rolling-gallery-container2 {
+  width: 100%;
+  margin: 40px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.rolling-gallery2 {
+  display: flex;
+  /* seamless continuous rightward loop: play the roll animation in reverse */
+  animation: roll var(--roll-duration, 50s) linear infinite;
+  animation-direction: reverse;
+  width: auto; /* content-driven (we duplicate items in HTML for seamless loop) */
+}
+
+.rolling-item2 {
+  width: var(--item-width);
+  height: var(--item-height);
+  margin: 0 20px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.rolling-item2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.rolling-text2 {
+  position: absolute;
+  bottom: 10px;
+  left: 0px;
+  right: 0px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 15px;
+  font-family: "dm-sans", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: left;
+}
+.rolling-gallery2::after {
+  content: '';
+  display: flex;
+}
+
